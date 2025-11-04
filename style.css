@@ -1,9 +1,11 @@
 /* General body styles */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Open Sans', Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: #f8f8f8;
+    background-color: #C1C6C8; /* Light gray background */
     color: #222;
+    font-size: 1.1rem; /* Larger body text */
+    line-height: 1.6;  /* Better readability */
 }
 
 /* Navbar styles */
@@ -16,13 +18,13 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: flex-end; /* Align right */
+    justify-content: flex-end; /* Align navbar right */
     align-items: center;
     gap: 2rem;
 }
 
 nav a {
-    color: white;
+    color: white; /* Default white links */
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
@@ -30,9 +32,8 @@ nav a {
     transition: color 0.2s;
 }
 
-nav a.active,
 nav a:hover {
-    color: #C8102E; /* Red secondary color */
+    color: #C8102E; /* Red on hover */
 }
 
 /* Header / title block */
@@ -41,7 +42,7 @@ header {
     color: white;
     text-align: center;
     padding: 10rem 1rem 8rem 1rem;
-    background-image: url('cover.jpg'); /* Ensure your cover.jpg is in the same folder */
+    background-image: url('images/cover.jpg'); /* Header image path */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -90,6 +91,24 @@ h2 {
     margin-bottom: 1rem;
 }
 
+/* About Us section with side image */
+#about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+#about img {
+    flex: 1 1 300px;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+#about div {
+    flex: 2 1 400px;
+}
+
 /* Footer styling */
 footer {
     display: flex;
@@ -102,13 +121,36 @@ footer {
 }
 
 footer a {
-    color: #C8102E; /* Red link */
+    color: white; /* Instagram default white */
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: #C8102E; /* Red on hover */
 }
 
 /* Team section grid */
 .team-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.team-grid div {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.team-grid img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Cars section specs */
+.car-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
