@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baja SAE Team | [Your University Name]</title>
+  <title>Gonzaga Society of Automotive Engineers | Baja Race Team</title>
+
+  <!-- Try to load Franklin Gothic Heavy or similar fallback -->
   <style>
+    @font-face {
+      font-family: 'Franklin Gothic Heavy';
+      src: local('Franklin Gothic Heavy'), local('FranklinGothic-Heavy'),
+           local('Franklin Gothic Demi'), local('ITC Franklin Gothic Heavy'),
+           local('Arial Black'), local('Helvetica Bold');
+      font-weight: 900;
+    }
+
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
@@ -15,11 +25,13 @@
       background-color: #f8f8f8;
       color: #222;
     }
+
+    /* Header styling */
     header {
       background-color: #111;
       color: white;
       text-align: center;
-      padding: 4rem 1rem;
+      padding: 6rem 1rem;
       background-image: url('car-hero.jpg');
       background-size: cover;
       background-position: center;
@@ -29,12 +41,28 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.55);
     }
     header h1, header p {
       position: relative;
       z-index: 1;
+      margin: 0;
     }
+    header h1 {
+      font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    header p {
+      font-family: 'Franklin Gothic Heavy', 'Arial Black', sans-serif;
+      font-size: 1.5rem;
+      color: #ffb800;
+      margin-top: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation */
     nav {
       background: #222;
       display: flex;
@@ -51,6 +79,8 @@
     nav a:hover {
       color: #ffb800;
     }
+
+    /* Section styling */
     section {
       padding: 4rem 10%;
       max-width: 1000px;
@@ -95,10 +125,11 @@
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>[Your University] Baja SAE</h1>
-    <p>Design • Build • Race • Repeat</p>
+    <h1>Gonzaga Society of Automotive Engineers</h1>
+    <p>Baja Race Team</p>
   </header>
 
   <nav>
@@ -112,7 +143,7 @@
   <section id="about">
     <h2>About Us</h2>
     <p>
-      We are a team of engineering students from [University Name] competing in the Baja SAE competition.
+      We are a team of engineering students from Gonzaga University competing in the Baja SAE competition.
       Each year, we design, build, and race an off-road vehicle to tackle the toughest terrain and push
       the limits of performance, teamwork, and innovation.
     </p>
@@ -161,12 +192,12 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:bajasae@[university].edu">bajasae@[university].edu</a></p>
-    <p>Instagram: <a href="https://instagram.com/[handle]" target="_blank">@bajasae_[university]</a></p>
+    <p>Email: <a href="mailto:bajasae@gonzaga.edu">bajasae@gonzaga.edu</a></p>
+    <p>Instagram: <a href="https://instagram.com/gonzagabaja" target="_blank">@gonzagabaja</a></p>
   </section>
 
   <footer>
-    © 2025 [University] Baja SAE | Designed by the Team
+    © 2025 Gonzaga SAE Baja | Designed by the Team
   </footer>
 </body>
 </html>
