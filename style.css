@@ -1,29 +1,27 @@
-/* -------- General -------- */
+/* =================== General Styles =================== */
 body {
   font-family: 'Segoe UI', 'Roboto', 'Open Sans', Arial, Helvetica, sans-serif;
   margin: 0;
-  background-color: #C1C6C8;
+  background-color: #111;
   color: #222;
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
-/* -------- Navbar -------- */
+/* =================== Navbar =================== */
 .navbar {
   background: #111;
-  color: white;
   width: 100%;
-  padding: 1rem 2rem;
-  box-sizing: border-box;
+  padding: 1rem 0; /* full-width with smaller top/bottom padding */
 }
 
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
   max-width: 1100px;
   margin: auto;
+  position: relative;
 }
 
 .logo {
@@ -33,12 +31,11 @@ body {
   letter-spacing: 1px;
 }
 
-/* Hide checkbox */
+/* Hamburger menu */
 .nav-toggle {
   display: none;
 }
 
-/* Hamburger icon */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -57,7 +54,6 @@ body {
   transition: 0.3s;
 }
 
-/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -79,18 +75,18 @@ body {
   color: #C8102E;
 }
 
-/* -------- Responsive Navbar -------- */
+/* Responsive Navbar */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-    z-index: 1001; /* keep icon above dropdown */
+    z-index: 1001;
   }
 
   .nav-links {
     position: absolute;
     top: 60px;
     right: 0;
-    background: rgba(17, 17, 17, 0.98); /* nearly solid dark background */
+    background: rgba(17, 17, 17, 0.98);
     flex-direction: column;
     align-items: flex-start;
     width: 220px;
@@ -99,7 +95,7 @@ body {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
-    z-index: 1000; /* make sure links sit above other content */
+    z-index: 1000;
   }
 
   .nav-links li {
@@ -111,7 +107,7 @@ body {
     width: 100%;
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #333;
-    color: white; /* ensure text is visible */
+    color: white;
     background: transparent;
   }
 
@@ -120,14 +116,12 @@ body {
     color: #C8102E;
   }
 
-  /* Show menu when checked */
   .nav-toggle:checked ~ .nav-links {
     max-height: 500px;
     opacity: 1;
     padding: 0.5rem 0;
   }
 
-  /* Animate hamburger into X */
   .nav-toggle:checked + .hamburger span:nth-child(1) {
     transform: rotate(45deg) translateY(7px);
   }
@@ -141,9 +135,8 @@ body {
   }
 }
 
-/* -------- Header -------- */
+/* =================== Header =================== */
 header {
-  background-color: #111;
   color: white;
   text-align: center;
   height: 600px;
@@ -157,34 +150,7 @@ header {
   padding: 0 1rem;
 }
 
-/* Page-specific header images */
-body.home header {
-  background-image: url('images/home-cover.jpg'); /* index page cover */
-}
-
-body.team header {
-  background-image: url('images/team-cover.jpg'); /* team page cover */
-}
-
-body.cars header {
-  background-image: url('images/cars-cover.jpg');
-}
-
-body.contact header {
-  background-image: url('images/contact-cover.jpg');
-}
-
-body.donors header {
-  background-image: url('images/donors-cover.jpg');
-}
-
-/* Example for other pages:
-body.donors header {
-  background-image: url('../images/donors-cover.jpg');
-}
-*/
-
-
+/* Dark overlay */
 header::before {
   content: '';
   position: absolute;
@@ -192,6 +158,7 @@ header::before {
   background: rgba(0, 0, 0, 0.55);
 }
 
+/* Header text */
 header h1,
 header p {
   position: relative;
@@ -213,14 +180,34 @@ header p {
   margin-top: 0.5rem;
 }
 
-/* -------- About section -------- */
-section {
-  padding: 4rem 10%;
-  max-width: 1000px;
-  margin: auto;
+/* Page-specific header images */
+body.home header { background-image: url('images/home-cover.jpg'); }
+body.team header { background-image: url('images/team-cover.jpg'); }
+body.cars header { background-image: url('images/cars-cover.jpg'); }
+body.contact header { background-image: url('images/contact-cover.jpg'); }
+body.donors header { background-image: url('images/donors-cover.jpg'); }
+
+/* =================== Sections =================== */
+/* Full-width background wrapper for sections */
+.full-width-section {
+  width: 100%;
+  background-color: white;
+  padding: 4rem 0;
 }
 
-h2 {
+/* Inner content centered */
+.full-width-section .content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+/* Default section text style */
+section h2 {
   color: #C8102E;
   text-transform: uppercase;
   border-bottom: 2px solid #C8102E;
@@ -228,13 +215,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-#about {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-}
-
+/* About section specifics */
 #about img {
   flex: 1 1 300px;
   max-width: 400px;
@@ -245,7 +226,7 @@ h2 {
   flex: 2 1 400px;
 }
 
-/* -------- Footer -------- */
+/* =================== Footer =================== */
 footer {
   display: flex;
   justify-content: space-between;
