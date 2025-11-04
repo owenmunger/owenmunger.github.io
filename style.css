@@ -1,4 +1,4 @@
-/* General body styles */
+/* ---------- General body styles ---------- */
 body {
   font-family: 'Segoe UI', 'Roboto', 'Open Sans', Arial, Helvetica, sans-serif;
   margin: 0;
@@ -8,7 +8,7 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar styles */
+/* ---------- Navbar styles ---------- */
 nav {
   background: #111;
   width: 100%;
@@ -31,10 +31,11 @@ nav {
   letter-spacing: 1px;
 }
 
-/* Hide checkbox safely */
-#menu-toggle {
+/* Hide checkbox off-screen */
+.menu-toggle {
   position: absolute;
-  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Hamburger icon */
@@ -46,7 +47,7 @@ nav {
   user-select: none;
 }
 
-/* Menu links */
+/* Menu layout */
 .menu {
   display: flex;
   gap: 2rem;
@@ -65,12 +66,12 @@ nav {
   color: #C8102E;
 }
 
-/* Header / title block */
+/* ---------- Header section ---------- */
 header {
   background-color: #111;
   color: white;
   text-align: center;
-  height: 400px; /* Fixed height */
+  height: 400px;
   background-image: url('images/cover.jpg');
   background-size: cover;
   background-position: center;
@@ -110,7 +111,7 @@ header p {
   margin-top: 0.5rem;
 }
 
-/* Section styling */
+/* ---------- Section styling ---------- */
 section {
   padding: 4rem 10%;
   max-width: 1000px;
@@ -125,7 +126,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* About Us section */
+/* About section */
 #about {
   display: flex;
   flex-wrap: wrap;
@@ -143,7 +144,7 @@ h2 {
   flex: 2 1 400px;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
   display: flex;
   justify-content: space-between;
@@ -162,31 +163,6 @@ footer a {
 
 footer a:hover {
   color: #C8102E;
-}
-
-/* Team grid */
-.team-grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.team-grid div {
-  flex: 1 1 200px;
-  text-align: center;
-}
-
-.team-grid img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* Cars specs grid */
-.car-specs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
 }
 
 /* ---------- Responsive Breakpoints ---------- */
@@ -218,8 +194,8 @@ footer a:hover {
     display: block;
   }
 
-  /* When checkbox is checked, show the dropdown */
-  #menu-toggle:checked + .menu-icon + .menu {
+  /* When checkbox checked, show menu */
+  .menu-toggle:checked ~ .menu {
     max-height: 400px;
     opacity: 1;
     padding: 0.5rem 0;
