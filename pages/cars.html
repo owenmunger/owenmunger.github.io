@@ -8,26 +8,28 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-container">
-    <div class="logo">Gonzaga SAE</div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="logo">Gonzaga SAE</div>
 
-    <!-- the hidden checkbox -->
-    <input type="checkbox" id="menu-toggle" />
+      <!-- Toggle checkbox and label -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-    <!-- the label that acts as button -->
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
-    <!-- this must be immediately after the label -->
-    <div class="menu">
-      <a href="../index.html">Home</a>
-      <a href="cars.html">Our Cars</a>
-      <a href="team.html">Our Team</a>
-      <a href="donors.html">Donors</a>
-      <a href="contact.html">Contact Us</a>
+      <!-- The menu links -->
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="cars.html">Our Cars</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="donors.html">Donors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
 <header>
