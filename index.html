@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baja SAE Team | [Your University Name]</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      margin: 0;
+      background-color: #f8f8f8;
+      color: #222;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      background-image: url('car-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+    nav {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #ffb800;
+    }
+    section {
+      padding: 4rem 10%;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #ffb800;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ffb800;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .team-grid img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .car-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .spec {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      flex: 1 1 250px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      background: #111;
+      color: white;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>[Your University] Baja SAE</h1>
+    <p>Design • Build • Race • Repeat</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#car">Vehicle</a>
+    <a href="#team">Team</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      We are a team of engineering students from [University Name] competing in the Baja SAE competition.
+      Each year, we design, build, and race an off-road vehicle to tackle the toughest terrain and push
+      the limits of performance, teamwork, and innovation.
+    </p>
+  </section>
+
+  <section id="car">
+    <h2>Our Vehicle</h2>
+    <img src="car.jpg" alt="Baja car" style="width:100%;border-radius:10px;">
+    <div class="car-specs">
+      <div class="spec"><b>Engine:</b> Briggs & Stratton 10hp</div>
+      <div class="spec"><b>Weight:</b> 420 lbs</div>
+      <div class="spec"><b>Top Speed:</b> 35 mph</div>
+      <div class="spec"><b>Frame:</b> Chromoly Steel</div>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div>
+        <img src="captain.jpg" alt="Team Captain">
+        <h3>Alex Johnson</h3>
+        <p>Team Captain</p>
+      </div>
+      <div>
+        <img src="suspension.jpg" alt="Suspension Lead">
+        <h3>Riley Kim</h3>
+        <p>Suspension Lead</p>
+      </div>
+      <div>
+        <img src="electrical.jpg" alt="Electrical Lead">
+        <h3>Jordan Lee</h3>
+        <p>Electrical Lead</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2>Events</h2>
+    <ul>
+      <li><b>Baja SAE California:</b> May 2025 – Gorman, CA</li>
+      <li><b>Baja SAE Tennessee Tech:</b> June 2025 – Cookeville, TN</li>
+      <li><b>Design Review:</b> March 2025</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:bajasae@[university].edu">bajasae@[university].edu</a></p>
+    <p>Instagram: <a href="https://instagram.com/[handle]" target="_blank">@bajasae_[university]</a></p>
+  </section>
+
+  <footer>
+    © 2025 [University] Baja SAE | Designed by the Team
+  </footer>
+</body>
+</html>
