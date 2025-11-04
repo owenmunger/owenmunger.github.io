@@ -218,9 +218,10 @@ footer a:hover {
   }
 
   /* Show menu when checkbox checked */
-  #menu-toggle:checked + .menu-icon + .menu {
-    max-height: 400px;
-    opacity: 1;
-    padding: 0.5rem 0;
-  }
+ #menu-toggle:checked + .menu-icon + .menu {
+  max-height: 400px;
+  opacity: 1;
+  padding: 0.5rem 0;
+}
+
 }
