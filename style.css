@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', 'Roboto', 'Open Sans', Arial, Helvetica, sans-serif;
   margin: 0;
   background-color: #111;
-  color: #222;
+  color: white;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -12,7 +12,8 @@ body {
 .navbar {
   background: #111;
   width: 100%;
-  padding: 1rem 0; /* full-width with smaller top/bottom padding */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .nav-inner {
