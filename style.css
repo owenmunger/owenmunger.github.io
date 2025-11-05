@@ -6,6 +6,7 @@ body {
   color: #111;
   font-size: 1.1rem;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* =================== Navbar =================== */
@@ -24,6 +25,13 @@ body {
   max-width: 1100px;
   margin: auto;
   position: relative;
+}
+
+/* Logo image */
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 .logo {
@@ -152,7 +160,6 @@ header {
   padding: 0 1rem;
 }
 
-/* Dark overlay */
 header::before {
   content: '';
   position: absolute;
@@ -160,7 +167,6 @@ header::before {
   background: rgba(0, 0, 0, 0.55);
 }
 
-/* Header text */
 header h1,
 header p {
   position: relative;
@@ -189,46 +195,6 @@ body.cars header { background-image: url('images/cars-cover.jpg'); }
 body.contact header { background-image: url('images/contact-cover.jpg'); }
 body.donors header { background-image: url('images/donors-cover.jpg'); }
 
-/* =================== Sections =================== */
-/* Full-width background wrapper for sections */
-.full-width-section {
-  width: 100%;
-  background-color: white;
-
-  padding: 4rem 0;
-}
-
-/* Inner content centered */
-.full-width-section .content {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-  padding: 0 2rem;
-}
-
-/* Default section text style */
-section h2 {
-  color: #C8102E;
-  text-transform: uppercase;
-  border-bottom: 2px solid #C8102E;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-/* About section specifics */
-#about img {
-  flex: 1 1 300px;
-  max-width: 500px;
-  border-radius: 10px;
-}
-
-#about div {
-  flex: 2 1 400px;
-}
-
 /* =================== Footer =================== */
 footer {
   display: flex;
@@ -248,4 +214,111 @@ footer a {
 
 footer a:hover {
   color: #C8102E;
+}
+
+/* ===========================================================
+   CARS PAGE-SPECIFIC STYLING
+   Only applies when <body class="cars"> is active
+=========================================================== */
+body.cars .full-width-section {
+  width: 100%;
+  background-color: white;
+  padding: 4rem 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+body.cars .full-width-section.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+body.cars .full-width-section:nth-of-type(odd) {
+  transform: translateX(-60px);
+}
+
+body.cars .full-width-section:nth-of-type(even) {
+  transform: translateX(60px);
+}
+
+/* Layout: alternating image left/right */
+body.cars .full-width-section .content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0 3rem;
+  box-sizing: border-box;
+}
+
+body.cars .full-width-section:nth-of-type(odd) .content {
+  flex-direction: row;
+}
+
+body.cars .full-width-section:nth-of-type(even) .content {
+  flex-direction: row-reverse;
+}
+
+body.cars .full-width-section img {
+  flex: 1 1 300px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+body.cars .full-width-section .content > div {
+  flex: 2 1 500px;
+  max-width: 600px;
+}
+
+body.cars section h2 {
+  color: #C8102E;
+  text-transform: uppercase;
+  border-bottom: 2px solid #C8102E;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+body.cars .car-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 12px 24px;
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 1000px) {
+  body.cars .car-specs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body.cars .full-width-section,
+  body.cars .full-width-section:nth-of-type(odd),
+  body.cars .full-width-section:nth-of-type(even) {
+    transform: translateY(40px);
+  }
+
+  body.cars .full-width-section.visible {
+    transform: translateY(0);
+  }
+
+  body.cars .full-width-section .content {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  body.cars .full-width-section img {
+    max-width: 100%;
+  }
 }

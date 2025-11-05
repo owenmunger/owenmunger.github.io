@@ -4,14 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gonzaga SAE Baja | Our Cars</title>
+<link rel="icon" href="../images/favicon.png" type="image/png">
 <link rel="stylesheet" href="../style.css">
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".full-width-section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  sections.forEach(section => observer.observe(section));
+});
+</script>
+
 <body class="cars">
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-inner">
-      <div class="logo">Gonzaga SAE</div>
+      <div class="logo">
+        <img src="../images/logo.png" alt="Gonzaga SAE Logo">
+      </div>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger">
@@ -43,10 +64,12 @@
     <div>
       <h2>HR6</h2>
       <div class="car-specs">
-      <div><b>Engine:</b> Rehlko 14hp</div>
-      <div><b>Weight:</b> 600 lbs</div>
-      <div><b>Top Speed:</b> 27 mph</div>
-      <div><b>Frame:</b> Chromoly Steel</div>
+      <div><b>Engine:</b> Kohler 14hp</div>
+      <div><b>Transmission:</b> Gaged GX9 CVT</div>
+      <div><b>Drivetrain:</b> Custom Chain Reduction</div>
+      <div><b>Weight:</b> 600lbs</div>
+      <div><b>Top Speed:</b> 27mph</div>
+      <div><b>Frame:</b> 4130 Chromoly Steel</div>
       </div>
       </p>
     </div>
@@ -60,7 +83,9 @@
       <h2>HR5</h2>
       <div class="car-specs">
       <div><b>Engine:</b> A bomb</div>
-      <div><b>Weight:</b> probably 100000 lbs</div>
+      <div><b>Transmission:</b> Allison 6600 Series</div>
+      <div><b>Drivetrain:</b> too many U-joints</div>
+      <div><b>Weight:</b> your mother</div>
       <div><b>Top Speed:</b> 2 mph (downhill)</div>
       <div><b>Frame:</b> large</div>
       </div>
@@ -76,9 +101,11 @@
       <h2>HR4</h2>
       <div class="car-specs">
       <div><b>Engine:</b> Briggs and Stratton 10hp</div>
+      <div><b>Transmission:</b> Gaged GX9 CVT</div>
+      <div><b>Drivetrain:</b> Dana H12 FNR</div>
       <div><b>Weight:</b> idk</div>
       <div><b>Top Speed:</b> idk</div>
-      <div><b>Frame:</b> idk</div>
+      <div><b>Frame:</b> 4130 Chromoly Steel</div>
       </div>
       </p>
     </div>
@@ -92,9 +119,11 @@
       <h2>HR3</h2>
       <div class="car-specs">
       <div><b>Engine:</b> Briggs and Stratton 10hp</div>
-      <div><b>Weight:</b> idk</div>
+      <div><b>Transmission:</b> Gaged GX9 CVT</div>
+      <div><b>Drivetrain:</b> Dana H12 FNR</div>
+      <div><b>Weight:</b> 500lbs</div>
       <div><b>Top Speed:</b> idk</div>
-      <div><b>Frame:</b> idk</div>
+      <div><b>Frame:</b> 4130 Chromoly Steel</div>
       </div>
       </p>
     </div>
@@ -108,9 +137,11 @@
       <h2>HR2</h2>
       <div class="car-specs">
       <div><b>Engine:</b> Briggs and Stratton 10hp</div>
+      <div><b>Transmission:</b> Gaged GX9 CVT</div>
+      <div><b>Drivetrain:</b> Dana H12 FNR</div>
       <div><b>Weight:</b> idk</div>
       <div><b>Top Speed:</b> idk</div>
-      <div><b>Frame:</b> idk</div>
+      <div><b>Frame:</b> 4130 Chromoly Steel</div>
       </div>
       </p>
     </div>
@@ -121,12 +152,14 @@
   <div class="content" id="about">
     <img src="../images/HR.jpg" alt="HR" />
     <div>
-      <h2>HR</h2>
+      <h2>OG Holy Roller</h2>
       <div class="car-specs">
       <div><b>Engine:</b> Briggs and Stratton 10hp</div>
+      <div><b>Transmission:</b> idk</div>
+      <div><b>Drivetrain:</b> Hydrostatic</div>      
       <div><b>Weight:</b> idk</div>
       <div><b>Top Speed:</b> idk</div>
-      <div><b>Frame:</b> idk</div>
+      <div><b>Frame:</b> 4130 Chromoly Steel</div>
       </div>
       </p>
     </div>
