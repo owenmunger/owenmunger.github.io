@@ -1,33 +1,40 @@
 /* ===========================================================
-   FULL style.css - Replace your current file with this
-   - Fixes mobile nav vertical spacing
-   - Fixes small-screen car image cropping
-   - Preserves your existing design, overlays, per-page covers
-   - Hamburger -> X uses 11px translate exactly
+   FULL style.css — Clean Final Version
+   - Fixed mobile nav spacing and hamburger offset
+   - Fixed car image cropping / white bar issue
+   - Keeps all previous structure and theme intact
 =========================================================== */
 
-/* ---------------- Global ---------------- */
-:root{
+:root {
   --accent: #C8102E;
   --light-bg: #C1C6C8;
   --nav-dark: #111;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+/* ===========================================================
+   GLOBAL STYLES
+=========================================================== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
 body {
-  font-family: 'Segoe UI','Roboto','Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI','Roboto','Open Sans',Arial,Helvetica,sans-serif;
   margin: 0;
   background-color: black;
   color: #222;
   font-size: 1.1rem;
   line-height: 1.6;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
 }
-img{max-width:100%;height:auto;display:block}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* ===========================================================
-   NAVBAR (shared) - STATIC (not fixed)
+   NAVBAR (shared)
 =========================================================== */
 .navbar {
   position: relative;
@@ -35,12 +42,10 @@ img{max-width:100%;height:auto;display:block}
   color: white;
   width: 100%;
   padding: 1rem 2rem;
-  box-sizing: border-box;
   overflow: visible;
   z-index: 1200;
 }
 
-/* subtle tire-track */
 .navbar::before {
   content: "";
   position: absolute;
@@ -51,7 +56,6 @@ img{max-width:100%;height:auto;display:block}
   z-index: 0;
 }
 
-/* inner */
 .nav-inner {
   display: flex;
   justify-content: space-between;
@@ -61,13 +65,12 @@ img{max-width:100%;height:auto;display:block}
   margin: auto;
   z-index: 1;
 }
+
 .logo img { height: 64px; }
 
-/* checkbox toggle (hidden) */
 .nav-toggle { display: none; }
 .nav-toggle.visually-hidden { position: absolute; left: -9999px; }
 
-/* hamburger label */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -77,6 +80,7 @@ img{max-width:100%;height:auto;display:block}
   cursor: pointer;
   z-index: 2100;
 }
+
 .hamburger span {
   display: block;
   height: 3px;
@@ -87,7 +91,6 @@ img{max-width:100%;height:auto;display:block}
   transform-origin: center;
 }
 
-/* desktop links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -96,7 +99,9 @@ img{max-width:100%;height:auto;display:block}
   padding: 0;
   z-index: 1200;
 }
-.nav-links li { margin:0; padding:0; }
+
+.nav-links li { margin: 0; padding: 0; }
+
 .nav-links a {
   color: white !important;
   text-decoration: none;
@@ -107,50 +112,58 @@ img{max-width:100%;height:auto;display:block}
   padding: 0;
   display: inline-block;
 }
+
 .nav-links a:hover { color: var(--accent) !important; }
-.nav-links a.active { color: var(--accent) !important; pointer-events: none; cursor: default; }
 
-/* ---------- Responsive Navbar (mobile) ---------- */
+.nav-links a.active {
+  color: var(--accent) !important;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ===========================================================
+   RESPONSIVE NAVBAR (MOBILE)
+=========================================================== */
 @media (max-width: 768px) {
-  .hamburger { display:flex; }
+  .hamburger { display: flex; }
 
-  /* dropdown container */
   .nav-links {
     position: absolute;
     top: 64px;
     right: 1rem;
     width: 220px;
-    background: rgba(17,17,17,0.98);
+    background: rgba(17, 17, 17, 0.98);
     border-radius: 8px;
     overflow: hidden;
-    display: flex;
     flex-direction: column;
     align-items: stretch;
     max-height: 0;
     opacity: 0;
-    transition: max-height .36s ease-in-out, opacity .28s ease-in-out;
+    transition: max-height 0.36s ease, opacity 0.28s ease;
     z-index: 2050;
-    box-shadow: 0 8px 20px rgba(0,0,0,.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links li {
+    width: 100%;
     margin: 0;
     padding: 0;
   }
 
-  /* remove default ul/li spacing */
-  .nav-links, .nav-links li { margin:0; padding:0; }
-
-  /* tight, consistent link sizing */
   .nav-links a {
     display: block;
     width: 100%;
-    padding: 0.6rem 1rem;       /* tighter vertical spacing */
-    line-height: 1;             /* important to remove extra height */
-    border-bottom: 1px solid #333;
-    color: white;
-    text-align: left;
-    box-sizing: border-box;
+    padding: 0.9rem 1rem;
+    line-height: 1.2;
+    border-bottom: 1px solid #2a2a2a;
     margin: 0;
+    color: white;
     background: transparent;
     font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    transition: background 0.2s, color 0.2s;
   }
 
   .nav-links a:last-child { border-bottom: none; }
@@ -160,25 +173,25 @@ img{max-width:100%;height:auto;display:block}
     color: var(--accent);
   }
 
-  /* open state (checkbox sibling) */
   .nav-toggle:checked ~ .nav-links {
     max-height: 520px;
     opacity: 1;
   }
 
-  /* hamburger -> X with exact 11px offset */
+  /* Hamburger → X animation */
   .nav-toggle:checked + .hamburger span:nth-child(1) {
     transform: rotate(45deg) translateY(12px);
   }
-  .nav-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
-
+  .nav-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
   .nav-toggle:checked + .hamburger span:nth-child(3) {
     transform: rotate(-45deg) translateY(-12px);
   }
 }
 
 /* ===========================================================
-   SHARED HEADER STYLING
+   HEADER (shared)
 =========================================================== */
 header {
   background-color: var(--nav-dark);
@@ -193,6 +206,7 @@ header {
   overflow: hidden;
   z-index: 100;
 }
+
 header::before {
   content: '';
   position: absolute;
@@ -200,7 +214,9 @@ header::before {
   background: rgba(0,0,0,0.55);
   z-index: 101;
 }
-header h1, header p {
+
+header h1,
+header p {
   position: relative;
   z-index: 102;
   margin: 0;
@@ -209,8 +225,9 @@ header h1, header p {
   font-family: 'Franklin Gothic Heavy','Arial Black',sans-serif;
   letter-spacing: 1px;
 }
+
 header h1 { font-size: clamp(2rem,5vw,3.5rem); }
-header p { font-size: clamp(1rem,3vw,1.8rem); color: var(--light-bg); margin-top:.5rem }
+header p { font-size: clamp(1rem,3vw,1.8rem); color: var(--light-bg); margin-top: .5rem; }
 
 /* ===========================================================
    PAGE-SPECIFIC STYLES (local cover.jpg)
@@ -218,102 +235,209 @@ header p { font-size: clamp(1rem,3vw,1.8rem); color: var(--light-bg); margin-top
 
 /* HOME */
 body.home header { background: url('home/cover.jpg') center/cover no-repeat; }
-body.home #about { display:flex; flex-wrap:wrap; gap:2rem; padding:4rem 10%; background:#fff; align-items:center; justify-content:center; }
-body.home #about img { flex:1 1 300px; max-width:400px; border-radius:10px; }
-body.home #about div { flex:2 1 400px; color:#111; }
+body.home #about {
+  display: flex; flex-wrap: wrap; gap: 2rem;
+  padding: 4rem 10%; background: #fff;
+  align-items: center; justify-content: center;
+}
+body.home #about img { flex: 1 1 300px; max-width: 400px; border-radius: 10px; }
+body.home #about div { flex: 2 1 400px; color: #111; }
 
-/* CARS */
-body.cars header { background: url('cars/cover.jpg') center/cover no-repeat; }
-body.cars main { background:#fff; padding:4rem 6%; }
+/* ===========================================================
+   CARS PAGE IMAGE STYLING — FIXED (no white bars)
+=========================================================== */
+body.cars header {
+  background: url('cars/cover.jpg') center/cover no-repeat;
+}
 
-/* card-style car block */
+body.cars main {
+  background: #fff;
+  padding: 4rem 6%;
+}
+
 body.cars .car {
-  display:flex; align-items:center; justify-content:center;
-  gap:3rem; flex-wrap:wrap; margin-bottom:4rem; padding:0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
 }
-body.cars .car.reverse { flex-direction:row-reverse; }
 
-/* Desktop / tablet images: keep cropped, consistent aspect */
+body.cars .car.reverse { flex-direction: row-reverse; }
+
 body.cars .car img {
-  flex:1 1 400px;
-  max-width:480px;
-  aspect-ratio:4/3;
-  object-fit:cover;     /* keeps consistent look on larger screens */
-  border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,.25);
+  flex: 1 1 400px;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
-/* Car text block */
-body.cars .car-info { flex:1 1 350px; text-align:center; padding:0 1rem; }
+body.cars .car-info {
+  flex: 1 1 350px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
 body.cars .car-info h2 {
-  color: var(--accent); font-size:2.2rem; font-weight:800; margin-bottom:1.5rem;
-  text-transform:uppercase; letter-spacing:1px; border-bottom:3px solid var(--accent);
-  display:inline-block; padding-bottom:.25rem;
+  color: var(--accent);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 0.25rem;
 }
-body.cars .car-specs {
-  display:grid; grid-template-columns:repeat(2,minmax(160px,1fr));
-  gap:.6rem 2rem; text-align:left; justify-content:center; margin:0 auto; max-width:500px;
-}
-body.cars .car-specs div { line-height:1.5; }
 
-/* On small screens, do NOT crop images — show full image */
+body.cars .car-specs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 0.6rem 2rem;
+  text-align: left;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+body.cars .car-specs div { line-height: 1.5; }
+
 @media (max-width: 768px) {
-  body.cars .car { flex-direction:column; text-align:center; padding:0 2rem; }
-  body.cars .car.reverse { flex-direction:column; }
-  body.cars .car-specs { grid-template-columns:1fr; text-align:center; max-width:90%; }
+  body.cars .car {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  body.cars .car.reverse { flex-direction: column; }
+
   body.cars .car img {
-    aspect-ratio: auto;      /* remove forced ratio */
-    object-fit: contain;     /* contain the full image without cropping */
     width: 100%;
     height: auto;
-    max-width: 95%;
+    max-width: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
     margin: 0 auto;
+    background: transparent;
+  }
+
+  body.cars .car-specs {
+    grid-template-columns: 1fr;
+    text-align: center;
+    max-width: 90%;
   }
 }
 
-/* TEAM */
+/* ===========================================================
+   TEAM PAGE
+=========================================================== */
 body.team header { background: url('team/cover.jpg') center/cover no-repeat; }
-body.team main { background:#f4f4f4; padding:4rem 0; }
-body.team .team-section { text-align:center; padding:3rem 2rem; }
-body.team .team-section:nth-of-type(even) { background:#fff; }
+body.team main { background: #f4f4f4; padding: 4rem 0; }
+body.team .team-section { text-align: center; padding: 3rem 2rem; }
+body.team .team-section:nth-of-type(even) { background: #fff; }
 body.team .team-section h2 {
-  color:var(--accent); font-size:2rem; text-transform:uppercase; font-weight:800;
-  margin-bottom:2rem; border-bottom:3px solid var(--accent); display:inline-block; padding-bottom:.3rem;
+  color: var(--accent); font-size: 2rem; text-transform: uppercase;
+  font-weight: 800; margin-bottom: 2rem;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block; padding-bottom: .3rem;
 }
-body.team .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; max-width:1100px; margin:0 auto; }
-body.team .member { background:white; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.15); padding:1.5rem; transition:transform .2s ease; }
-body.team .member:hover { transform:translateY(-4px); box-shadow:0 4px 10px rgba(0,0,0,.25); }
-body.team .member img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:10px; margin-bottom:1rem; }
-body.team .member h3 { color:#111; margin-bottom:.3rem; font-size:1.1rem; }
-body.team .member .role { color:var(--accent); font-weight:bold; margin-bottom:.5rem; }
+body.team .team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem; max-width: 1100px; margin: 0 auto;
+}
+body.team .member {
+  background: white; border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  padding: 1.5rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+body.team .member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+}
+body.team .member img {
+  width: 100%; aspect-ratio: 1 / 1;
+  object-fit: cover; border-radius: 10px;
+  margin-bottom: 1rem;
+}
+body.team .member h3 { color: #111; margin-bottom: .3rem; font-size: 1.1rem; }
+body.team .member .role { color: var(--accent); font-weight: bold; margin-bottom: .5rem; }
 
-/* DONORS */
+/* ===========================================================
+   DONORS
+=========================================================== */
 body.donors header { background: url('donors/cover.jpg') center/cover no-repeat; }
-body.donors main { background:#fff; padding:4rem 2rem; text-align:center; }
-body.donors #donors h2 { color:var(--accent); border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:.5rem; }
-body.donors #donors p { max-width:700px; margin:2rem auto; font-size:1.1rem; line-height:1.7; }
+body.donors main { background: #fff; padding: 4rem 2rem; text-align: center; }
+body.donors #donors h2 {
+  color: var(--accent); border-bottom: 2px solid var(--accent);
+  display: inline-block; padding-bottom: .5rem;
+}
+body.donors #donors p {
+  max-width: 700px; margin: 2rem auto;
+  font-size: 1.1rem; line-height: 1.7;
+}
 
-/* CONTACT */
+/* ===========================================================
+   CONTACT
+=========================================================== */
 body.contact header { background: url('contact/cover.jpg') center/cover no-repeat; }
-body.contact main { background:#f4f4f4; text-align:center; padding:4rem 2rem; }
-body.contact main a { color:var(--accent); font-weight:bold; text-decoration:none; }
-body.contact main a:hover { color:#a00; }
+body.contact main { background: #f4f4f4; text-align: center; padding: 4rem 2rem; }
+body.contact main a { color: var(--accent); font-weight: bold; text-decoration: none; }
+body.contact main a:hover { color: #a00; }
 
-/* FOOTER */
+/* ===========================================================
+   FOOTER (shared)
+=========================================================== */
 footer {
   position: relative;
-  display:flex; justify-content:space-between; align-items:center;
-  background: black; color: white; padding:1.5rem 2rem; font-size:.85rem; overflow:hidden; z-index:500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 1.5rem 2rem;
+  font-size: .85rem;
+  overflow: hidden;
+  z-index: 500;
 }
+
 footer::before {
-  content:""; position:absolute; inset:0; background:url("images/tiretracks.png") center/cover no-repeat;
-  opacity:0.25; mix-blend-mode:lighten; z-index:0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("images/tiretracks.png") center/cover no-repeat;
+  opacity: 0.25;
+  mix-blend-mode: lighten;
+  z-index: 0;
 }
-footer a, footer p { position:relative; z-index:1 }
-footer a { color:white; text-decoration:none; transition:color .18s }
-footer a:hover { color:var(--accent) }
-@media (max-width:600px) { footer { flex-direction:column; gap:.5rem; text-align:center } }
 
-/* ACTIVE LINK */
-.navbar .nav-links a.active { color:var(--accent) !important; pointer-events:none; cursor:default; }
+footer a, footer p { position: relative; z-index: 1; }
+footer a { color: white; text-decoration: none; transition: color .18s; }
+footer a:hover { color: var(--accent); }
 
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+  }
+}
+
+/* ===========================================================
+   ACTIVE NAV LINK
+=========================================================== */
+.navbar .nav-links a.active {
+  color: var(--accent) !important;
+  pointer-events: none;
+  cursor: default;
+}
