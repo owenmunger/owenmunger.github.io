@@ -86,7 +86,7 @@ header p { font-size: clamp(1rem,3vw,1.8rem); color: var(--light-bg); margin-top
 /* ---------------- PAGE: HOME (unchanged) ---------------- */
 body.home header { background: url('home/cover.jpg') center/cover no-repeat; }
 body.home #about { display:flex; flex-wrap:wrap; gap:2rem; padding:4rem 10%; background:#fff; align-items:center; justify-content:center; }
-body.home #about img { flex:1 1 300px; max-width:400px; border-radius:10px; }
+body.home #about img { flex:1 1 300px; max-width:500px; border-radius:10px; }
 body.home #about div { flex:2 1 400px; color:#111; }
 
 /* ===========================================================
